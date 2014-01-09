@@ -16,3 +16,7 @@ The only other option that is allowed is data-vhmin-offset="number". Adding this
 
     // Will remove 100 px from the viewport height
     <div id="element-that-needs-viewport-height" data-vhmin="true" data-vhmin-offset="100"></div>
+
+Once that is done, on load, call:
+
+    vhmin.init();

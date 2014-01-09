@@ -25,7 +25,7 @@ var vhmin = function() {
   }
   return {
     elements: [],
-    initialize: function() {
+    init: function() {
       getElements.call(this);
       calculateHeight.call(this);
       window.addEventListener('resize', calculateHeight.bind(this), false);
