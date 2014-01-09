@@ -20,3 +20,10 @@ The only other option that is allowed is data-vhmin-offset="number". Adding this
 Once that is done, on load, call:
 
     vhmin.init();
+
+Installation
+============
+
+You can use bower to install this.
+
+    bower install vh-min
