@@ -14,8 +14,14 @@ The data-vhmin="true" attribute is what indicates this element should be at leas
 
 The only other option that is allowed is data-vhmin-offset="number". Adding this to your element will subtract pixels from the elements height
 
-    // Will remove 100 px from the viewport height
+    <!-- Will remove 100 px from the viewport height -->
     <div id="element-that-needs-viewport-height" data-vhmin="true" data-vhmin-offset="100"></div>
+    
+    <!-- Will remove the height of the header element from the viewport height -->
+    <div id="element-that-needs-viewport-height" data-vhmin="true" data-vhmin-offset="header"></div>
+    
+    <!-- Will not remove anything from the viewport height -->
+    <div id="element-that-needs-viewport-height" data-vhmin="true"></div>
 
 Once that is done, on load, call:
 
