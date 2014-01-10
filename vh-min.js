@@ -15,7 +15,7 @@ var vhmin = function() {
       Array.prototype.slice.call(item.element.children).forEach(function(item, index, array) {
         childrenHeight += parseInt(window.getComputedStyle(item).height);
       }, this);
-      if (childrenHeight + item.offset < windowHeight) {
+      if (childrenHeight + item.offset - 1 < windowHeight) {
         item.element.style.height = (windowHeight - item.offset) + 'px';
       } else if (childrenHeight + item.offset > windowHeight) {
         console.log(childrenHeight + 'px');
