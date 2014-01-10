@@ -12,7 +12,7 @@ var vhmin = function() {
       }
       this.elements.push({
         element: item,
-        offset: parseInt(item.getAttribute('data-vhmin-offset'), 10) || 0
+        offset: offset
       });
     }, this);
   };
