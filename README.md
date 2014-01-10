@@ -12,7 +12,7 @@ Usage
 
 The data-vhmin="true" attribute is what indicates this element should be at least a full viewport.
 
-The only other option that is allowed is data-vhmin-offset="number". Adding this to your element will subtract pixels from the elements height
+The only other option that is allowed is data-vhmin-offset. Adding this to your element will subtract pixels from the elements height
 
     <!-- Will remove 100 px from the viewport height -->
     <div id="element-that-needs-viewport-height" data-vhmin="true" data-vhmin-offset="100"></div>
