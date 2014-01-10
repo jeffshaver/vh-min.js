@@ -3,7 +3,7 @@ var vhmin = function() {
     Array.prototype.slice.call(document.querySelectorAll('[data-vhmin]')).forEach(function(item, index, array) {
       this.elements.push({
         element: item,
-        offset: parseInt(item.getAttribute('data-vhmin-offset'), 10)
+        offset: parseInt(item.getAttribute('data-vhmin-offset'), 10) || 0
       });
     }, this);
   };
