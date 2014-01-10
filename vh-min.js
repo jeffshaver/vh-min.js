@@ -5,6 +5,7 @@ var vhmin = function() {
         element: item,
         offset: parseInt(item.getAttribute('data-vhmin-offset'), 10) || 0
       });
+      item.style.maxHeight = '100%';
     }, this);
   };
   
