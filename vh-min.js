@@ -1,11 +1,19 @@
 var vhmin = function() {
   var getElements = function() {
     Array.prototype.slice.call(document.querySelectorAll('[data-vhmin]')).forEach(function(item, index, array) {
+      var vhminOffset = item.getAttribute('data-vhmin-offset'),
+          offset;
+      if (!isNaN(parseInt(vhminOffset, 10))) {
+        offset = vhminOffset;
+      } else if (!vhminOffset) {
+        offset = 0;
+      } else if (isNaN(parseInt(vhminOffset, 10))) {
+        offset = document.querySelector(vhminOffset).offsetHeight;
+      }
       this.elements.push({
         element: item,
         offset: parseInt(item.getAttribute('data-vhmin-offset'), 10) || 0
       });
-      item.style.maxHeight = '100%';
     }, this);
   };
   
@@ -19,7 +27,6 @@ var vhmin = function() {
       if (childrenHeight + item.offset < windowHeight) {
         item.element.style.height = (windowHeight - item.offset) + 'px';
       } else if (childrenHeight + item.offset > windowHeight) {
-        console.log(childrenHeight + 'px');
         item.element.style.height = childrenHeight + 'px'
       }
     }, this);
