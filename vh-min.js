@@ -17,7 +17,7 @@ var vhmin = function() {
       }, this);
       if (childrenHeight + item.offset < windowHeight) {
         item.element.style.height = (windowHeight - item.offset) + 'px';
-      } else if (childrenHeight + item.offset > windowHeight) {\
+      } else if (childrenHeight + item.offset > windowHeight) {
         item.element.style.height = childrenHeight + 'px'
       }
     }, this);
