@@ -1,5 +1,23 @@
 {
   "name": "vh-min",
   "version": "1.0.0",
-  "main": "vh-min.js"
+  "main": "vh-min.js",
+  "homepage": "https://github.com/jeffshaver/vh-min.js",
+  "authors": [
+    "jeffshaver <jeff.e.shaver@gmail.com>"
+  ],
+  "description": "JS to simulate the vh unit",
+  "keywords": [
+    "vh",
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
 }

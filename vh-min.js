@@ -13,7 +13,7 @@ var vhmin = function() {
     this.elements.forEach(function(item, index, array) {
       var childrenHeight = 0;
       Array.prototype.slice.call(item.element.children).forEach(function(item, index, array) {
-        childrenHeight += parseInt(window.getComputedStyle(item).height);
+        childrenHeight += item.offsetHeight;
       }, this);
       if (childrenHeight + item.offset < windowHeight) {
         item.element.style.height = (windowHeight - item.offset) + 'px';
