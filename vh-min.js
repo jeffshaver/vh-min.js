@@ -4,12 +4,12 @@ var vhmin = function() {
       var vhminOffset = item.getAttribute('data-vhmin-offset'),
             offset;
       if (!isNaN(parseInt(vhminOffset, 10))) {
-        offset = vhminOffset;
+        offset = parseInt(vhminOffset, 10);
       } else if (!vhminOffset) {
         offset = 0;
       } else if (isNaN(parseInt(vhminOffset, 10))) {
         offset = document.querySelector(vhminOffset).offsetHeight;
-      }      
+      } 
       this.elements.push({
         element: item,
         offset: offset
