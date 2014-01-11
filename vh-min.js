@@ -1,9 +1,18 @@
 var vhmin = function() {
   var getElements = function() {
     Array.prototype.slice.call(document.querySelectorAll('[data-vhmin]')).forEach(function(item, index, array) {
+      var vhminOffset = item.getAttribute('data-vhmin-offset'),
+            offset;
+      if (!isNaN(parseInt(vhminOffset, 10))) {
+        offset = vhminOffset;
+      } else if (!vhminOffset) {
+        offset = 0;
+      } else if (isNaN(parseInt(vhminOffset, 10))) {
+        offset = document.querySelector(vhminOffset).offsetHeight;
+      }      
       this.elements.push({
         element: item,
-        offset: parseInt(item.getAttribute('data-vhmin-offset'), 10) || 0
+        offset: offset
       });
     }, this);
   };

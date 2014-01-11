@@ -35,7 +35,7 @@ Once that is done, on load, call:
 Debouncing
 ==========
 
-Debouncing is enabled by default as of 1.0.4. If no time is passed into the `vhmin.init` function, it is defaulted to 100ms.
+Debouncing is enabled by default as of 1.0.3. If no time is passed into the `vhmin.init` function, it is defaulted to 100ms.
 
 If you want to disable debouncing altogether, pass in false.
 
