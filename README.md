@@ -5,6 +5,11 @@ JS that can be used to simulate vh unit functionality (since it isn't supported 
 
 When I was making something for my own site, there was a particular section that I wanted to be the full height of the viewport. There are vh and vw units that do exactly this. However, because of poor support (especially on mobile devices... iOS, Android, etc...) I needed a more effective way of doing this. Enter vh-min.js
 
+Demo
+====
+
+http://jeffshaver.github.io/vh-min
+
 Usage
 =====
 
