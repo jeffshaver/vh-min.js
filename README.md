@@ -13,20 +13,20 @@ http://jeffshaver.github.io/vh-min
 Usage
 =====
 
-    <div id="element-that-needs-viewport-height" data-vhmin="true"></div>
+    <div id="element-that-needs-viewport-height" data-vhmin></div>
 
-The data-vhmin="true" attribute is what indicates this element should be at least a full viewport.
+The data-vhmin attribute is what indicates this element should be at least a full viewport.
 
 The only other option that is allowed is data-vhmin-offset. Adding this to your element will subtract pixels from the elements height
 
     <!-- Will remove 100 px from the viewport height -->
-    <div id="element-that-needs-viewport-height" data-vhmin="true" data-vhmin-offset="100"></div>
+    <div id="element-that-needs-viewport-height" data-vhmin data-vhmin-offset="100"></div>
     
     <!-- Will remove the height of the header element from the viewport height -->
-    <div id="element-that-needs-viewport-height" data-vhmin="true" data-vhmin-offset="header"></div>
+    <div id="element-that-needs-viewport-height" data-vhmin data-vhmin-offset="header"></div>
     
     <!-- Will not remove anything from the viewport height -->
-    <div id="element-that-needs-viewport-height" data-vhmin="true"></div>
+    <div id="element-that-needs-viewport-height" data-vhmin></div>
 
 Once that is done, on load, call:
 
