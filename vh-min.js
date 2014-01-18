@@ -1,52 +1,53 @@
-var vhmin = (function () {
-  'use strict';
-  var getElements = function () {
-    Array.prototype.slice.call(document.querySelectorAll('[data-vhmin]')).forEach(function (item) {
-      var offset, vhminOffset = item.getAttribute('data-vhmin-offset');
+// vhmin namespace
+var vhmin = function() {
+  // function to grab all the elements that will need vhmin
+  var getElements = function() {
+    Array.prototype.slice.call(document.querySelectorAll('[data-vhmin]')).forEach(function(item, index, array) {
+      var vhminOffset = item.getAttribute('data-vhmin-offset'),
+            offset;
       if (!isNaN(parseInt(vhminOffset, 10))) {
         offset = parseInt(vhminOffset, 10);
-      } else {
-        if (!vhminOffset) {
-          offset = 0;
-        } else {
-          if (isNaN(parseInt(vhminOffset, 10))) {
-            offset = document.querySelector(vhminOffset).offsetHeight;
-          }
-        }
-      }
+      } else if (!vhminOffset) {
+        offset = 0;
+      } else if (isNaN(parseInt(vhminOffset, 10))) {
+        offset = document.querySelector(vhminOffset).offsetHeight;
+      } 
       this.elements.push({
         element: item,
         offset: offset
       });
     }, this);
-  },
-    debounce = function (fn, delay) {
-      var timer = null,
-        context = this;
-      return function () {
-        clearTimeout(timer);
-        timer = setTimeout(fn.bind(context), delay);
-      };
-    },
-    calculateHeight = function () {
-      var windowHeight = window.innerHeight;
-      this.elements.forEach(function (item) {
-        var childrenHeight = 0;
-        Array.prototype.slice.call(item.element.children).forEach(function (item) {
-          childrenHeight += item.offsetHeight;
-        }, this);
-        if (childrenHeight + item.offset < windowHeight) {
-          item.element.style.height = (windowHeight - item.offset) + 'px';
-        } else {
-          if (childrenHeight + item.offset > windowHeight) {
-            item.element.style.height = childrenHeight + 'px';
-          }
-        }
+  };
+  
+  // debounce function
+  var debounce = function(fn, delay) {
+    var timer = null,
+          context = this;
+    return function() {
+      clearTimeout(timer);
+      timer = setTimeout(fn.bind(context), delay);
+    }
+  }
+  
+  // function to calculate the height and style the elements as needed
+  var calculateHeight = function() {
+    var windowHeight = window.innerHeight;
+    this.elements.forEach(function(item, index, array) {
+      var childrenHeight = 0;
+      Array.prototype.slice.call(item.element.children).forEach(function(item, index, array) {
+        childrenHeight += item.offsetHeight;
       }, this);
-    };
+      if (childrenHeight + item.offset < windowHeight) {
+        item.element.style.height = (windowHeight - item.offset) + 'px';
+      } else if (childrenHeight + item.offset > windowHeight && item.element.style.height != null) {
+        item.element.style.height = null
+      }
+    }, this);
+  }
+  // return public items
   return {
     elements: [],
-    init: function (debounceDelay) {
+    init: function(debounceDelay) {
       getElements.call(this);
       calculateHeight.call(this);
       if (debounceDelay !== false) {
@@ -55,5 +56,5 @@ var vhmin = (function () {
         window.addEventListener('resize', calculateHeight.bind(this), false);
       }
     }
-  };
-}());
+  }
+}();
