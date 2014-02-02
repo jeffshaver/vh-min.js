@@ -23,6 +23,7 @@
   return function() {
     var slice = Array.prototype.slice;
     var getElements = function() {
+      var me = this;
       slice.call(document.querySelectorAll('[data-vhmin]')).forEach(function(item) {
         var vhminOffset = item.getAttribute('data-vhmin-offset');
         var offset;
@@ -33,7 +34,7 @@
         } else if (isNaN(parseInt(vh, 10))) {
           offset = document.querySelector(vhminOffset).offsetHeight;
         }
-        this.elements.push({
+        me.elements.push({
           element: item,
           offset: offset
         })
