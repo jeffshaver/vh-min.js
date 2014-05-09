@@ -72,6 +72,9 @@
         } else {
           window.addEventListener('resize', calculateHeight.bind(this), false);
         }
+      },
+      refresh: function() {
+        calculateHeight.call(this);
       }
     }
   };
